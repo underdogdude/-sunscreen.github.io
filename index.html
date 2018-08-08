@@ -72,6 +72,29 @@
             margin-bottom: 20px;
         }
 
+        
+        .logo {
+            width:150px;
+        }
+
+        .social-icon {
+            max-width: 25px ;
+        }
+
+        .btn-asta {
+            background: #1d5786;
+            border-color: transparent;
+        }
+
+        .btn-asta:hover,
+        .btn-asta:active {
+            background: #263b4c;
+            border-color: #263b4c;
+        }
+
+        .more-space {
+            padding: 50px;
+        }
         @media only screen and (max-width: 600px) {
             .bg-contact {
                 background-position: left center;
@@ -91,24 +114,48 @@
             .logo {
                 width: 70px !important;
             }
-        }
-        .logo {
-            width:150px;
-        }
-
-        .social-icon {
-            max-width: 25px !important;
-        }
-
-        .btn-asta {
-            background: #1d5786;
-            border-color: transparent;
-        }
-
-        .btn-asta:hover,
-        .btn-asta:active {
-            background: #263b4c;
-            border-color: #263b4c;
+            p {
+                font-size: 8px !important;
+                margin-bottom: 2px;
+            }
+            h1 { 
+                font-size: 16px;
+            }
+            h2 { 
+                font-size: 14px;
+                margin-bottom: 2px;
+            }
+            h3 { 
+                font-size: 12px;
+            }
+            h4 { 
+                font-size: 12px;
+            }
+            .thai.text-danger {
+                font-size: 9px;
+            }
+            .bg-contact {
+                background-size: auto !important;
+            }
+            .bg-contact h4{
+                font-size: 15px;
+            }
+            .social-icon{
+                width: 16px;
+            }
+            .logo-footer{
+                width: 80px !important; 
+            }
+            .img-contact-1 {
+                max-width: 20% !important;
+            }
+            .img-contact-2 {
+                max-width: 20% !important;
+            }
+            .more-space {
+                padding: 30px;
+                padding-right: 0;
+            }
         }
     </style>
     <link href="css/style.css" rel="stylesheet">
@@ -363,11 +410,13 @@
 
     </div>
 
-    <div class="bg-contact">
-        <div class="container">
-            <div class="row " style="width: 100%; min-height: 500px; text-align: center;">
+    <div class="container-fluid" style=" background :#fff ;">
+        <img src="./resource/campaign-bg-top-left.png" style="position: absolute;  left:0; max-width: 140px;"  class="img-contact-1"/>
+        <img src="./resource/Product-BG-3-flip.png" style="position: absolute;  right:0; max-width: 190px;" class="img-contact-2">
+        <div  class="more-space">
+            <div class="row " style="width: 100%;text-align: center; padding: 30px; background: #f7b585; ">
                 <div class="col-md-12 align-self-center fade-in-bottom">
-                    <img src="./resource/logo.png" alt="sunSprayLogo" style="width: 130px " />
+                    <img src="./resource/logo.png" alt="sunSprayLogo" style="width: 130px " class="logo-footer" />
                     <h4 style="font-weight: 300; color: white;">
                         Contact
                     </h4>
@@ -384,17 +433,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="footer">
-        <a href="https://www.facebook.com/astasunspray/" target="_blank">
-            <img src="./resource/icon-fb.png" class="social-icon" />
-        </a>
-        <a href="https://www.instagram.com/Astasunspray/" target="_blank">
-            <img src="./resource/icon-ig.png" class="social-icon" />
-        </a>
-        <a href="http://line.me/ti/p/~@astasunspray" target="_blank">
-            <img src="./resource/icon-line.png" class="social-icon" />
-        </a>
-    </div> -->
+  
     <!-- WhatsHelp.io widget -->
     <script type="text/javascript">
         (function () {
