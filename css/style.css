@@ -30,6 +30,9 @@ p {
     font-size: 18px;
 }
 
+    .container {
+        max-width: 1000px;
+    }
 
 .bg-star {
     background-image: url('../resource/bg.jpg');
