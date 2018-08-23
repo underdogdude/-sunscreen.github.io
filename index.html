@@ -371,7 +371,7 @@
     <!-- Start Modal -->
 
     <div class="modal fade" id="video_modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -559,17 +559,18 @@
         var iframe_vdo ;
         var $iframe_container = $("#video_id");
 
-        if( modalNum === 3 ) {
+        if( modalNum === 1 ) {
 
-            iframe_vdo = `<iframe src="https://drive.google.com/file/d/1FLxTdKSaNzEvSzbsnxqYMJE4kCuF2fIN/preview" class="embed-responsive-item" gesture="media" allow="encrypted-media" allowfullscreen></iframe>`;
+            iframe_vdo = `<iframe src="https://drive.google.com/file/d/19YyWabpX0uYjEDCMnmGyhKIUnpZggS4X/preview" class="embed-responsive-item" gesture="media" allow="encrypted-media" allowfullscreen></iframe>`;
         }
         else if ( modalNum === 2 ) {
 
             iframe_vdo = `<iframe src="https://drive.google.com/file/d/1QgC-O1YsN_N48Ccc6TMP747dVS1SCxCe/preview" class="embed-responsive-item" gesture="media" allow="encrypted-media" allowfullscreen></iframe>`;
         }
-        else if ( modalNum === 1 ) {
+        else if ( modalNum === 3 ) {
 
-            iframe_vdo = `<iframe src="https://drive.google.com/file/d/19YyWabpX0uYjEDCMnmGyhKIUnpZggS4X/preview" class="embed-responsive-item" gesture="media" allow="encrypted-media" allowfullscreen></iframe>`;
+            iframe_vdo = `<iframe src="https://drive.google.com/file/d/1FLxTdKSaNzEvSzbsnxqYMJE4kCuF2fIN/preview" class="embed-responsive-item" gesture="media" allow="encrypted-media" allowfullscreen></iframe>`;
+            
         }else {
             return ;
         }
@@ -581,7 +582,6 @@
     $('#video_modal').modal({
         show: false
     }).on('hidden.bs.modal', function(){
-        console.log('bute');
         $("#video_modal iframe").attr("src", $("#video_modal iframe").attr("src"));
     });
     
