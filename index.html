@@ -96,6 +96,11 @@
             padding: 50px;
         }
 
+        .pointer {
+            cursor: pointer;
+
+        }
+
         @media only screen and (max-width: 600px) {
             .bg-contact {
                 background-position: left center;
@@ -315,8 +320,8 @@
                     <p class="thai">- ปกป้องผิวจากแสงแดด UVA และ UVB</p>
                     <p class="thai">- ปกป้องผิวจากแสงBlue-violet light (HEV)</p>
                     <p class="thai">- ป้องกันผิวจากมลภาวะ และ ความร้อนAnti-pollution</p>
-                    <p class="thai">- ลดอาการระคายเคือง พร้อมเพิ่มความชุ่มชื่นแก่ผิวให้ผิวแลดูเปล่งปลั่งสดใสอีกทั้งสามารถยับยั้ง
-                        การเกิดริ้วรอยก่อนวัย</p>
+                    <p class="thai">- ลดอาการระคายเคือง พร้อมเพิ่มความชุ่มชื่นแก่ผิวให้ผิวแลดูเปล่งปลั่งสดใสอีกทั้งสามารถยับยั้ง การเกิดริ้วรอยก่อนวัย
+                    </p>
                     <p class="thai">- ไม่ใส่สารแต่งกลิ่นและวัตถุกันเสีย</p>
                     <p class="thai">- ไม่เกิดอาการแพ้ต่อผิวหนัง</p>
                     <h3 style="color: #333;" class="thai">
@@ -352,17 +357,36 @@
             <div class="row " style="padding: 50px 0px;">
 
                 <div class="col-md-4 text-center fade-in-bottom ">
-                    <img src="./resource/Thumbnail1.png" style="max-width: 70%;" />
+                    <img src="./resource/Thumbnail1.png" style="max-width: 70%;" class="pointer" onclick="openModal(1)" />
                 </div>
                 <div class="col-md-4 text-center fade-in-bottom ">
-                    <img src="./resource/Thumbnail2.png" style="max-width: 70%;" />
+                    <img src="./resource/Thumbnail2.png" style="max-width: 70%;" class="pointer" onclick="openModal(2)" />
                 </div>
                 <div class="col-md-4 text-center fade-in-bottom ">
-                    <img src="./resource/Thumbnail3.png" style="max-width: 70%;" />
+                    <img src="./resource/Thumbnail3.png" style="max-width: 70%;" class="pointer" onclick="openModal(3)" />
                 </div>
             </div>
         </div>
     </div>
+    <!-- Start Modal -->
+
+    <div class="modal fade" id="video_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class=" embed-responsive embed-responsive-16by9 " id="video_id">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
     <img src="./resource/campaign-bg-top-left.png" style="position: absolute;  left:0; max-width: 10%;  " width="200px" />
 
     <img src="./resource/campaign-bg-top-right.png" style="position: absolute;  right:0; max-width: 10%; z-index:-1; " width="150px"
@@ -455,6 +479,14 @@
     <!-- /WhatsHelp.io widget -->
 </body>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+
+
 <script>
     function detailChange(lang) {
 
@@ -519,15 +551,41 @@
             $('#productDetailLang').html(detailTH);
         }
     }
+    
+    
+
+    function openModal(modalNum) {
+
+        var iframe_vdo ;
+        var $iframe_container = $("#video_id");
+
+        if( modalNum === 3 ) {
+
+            iframe_vdo = `<iframe src="https://drive.google.com/file/d/1FLxTdKSaNzEvSzbsnxqYMJE4kCuF2fIN/preview" class="embed-responsive-item" gesture="media" allow="encrypted-media" allowfullscreen></iframe>`;
+        }
+        else if ( modalNum === 2 ) {
+
+            iframe_vdo = `<iframe src="https://drive.google.com/file/d/1QgC-O1YsN_N48Ccc6TMP747dVS1SCxCe/preview" class="embed-responsive-item" gesture="media" allow="encrypted-media" allowfullscreen></iframe>`;
+        }
+        else if ( modalNum === 1 ) {
+
+            iframe_vdo = `<iframe src="https://drive.google.com/file/d/19YyWabpX0uYjEDCMnmGyhKIUnpZggS4X/preview" class="embed-responsive-item" gesture="media" allow="encrypted-media" allowfullscreen></iframe>`;
+        }else {
+            return ;
+        }
+        
+        $iframe_container.append(iframe_vdo);
+        $('#video_modal').modal('show')
+    }
+
+    $('#video_modal').modal({
+        show: false
+    }).on('hidden.bs.modal', function(){
+        console.log('bute');
+        $("#video_modal iframe").attr("src", $("#video_modal iframe").attr("src"));
+    });
+    
 </script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-    crossorigin="anonymous"></script>
-
 
 
 </html>
